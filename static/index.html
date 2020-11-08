@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <button onclick="resetTrackedGamesFile()" type="button" class="btn btn-primary">resetTrackedGames</button>
+
+<div class="container-1">
+ 
+
+  <div class="network">
+
+    <div id="currentStatus">
+      <div class="alert alert-success" id="connecting" role="alert">
+        Click update...
+      </div>
+    </div>
+  </div>
+
+
+  <div id="searchParent"> 
+    <svg xmlns="http://www.w3.org/2000/svg" id="searchIcon" class="icon icon-tabler icon-tabler-search" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#9E9E9E" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="10" cy="10" r="7" />
+      <line x1="21" y1="21" x2="15" y2="15" />
+    </svg>
+      <input type="text" id="searchInput" class="grid-item" disabled='true' onkeyup="searchFilter()" placeholder="Search for games by name..">
+  </div>
+
+  <div class="gameTracking-box">
+    <!-- THE 'TRACKED LIST' AREA --> 
+    Tracked games: 
+
+    <ul id="trackedGamesList">
+
+    </ul>
+    
+  </div>
+
+  <ul id="searchList">
+    <!-- SEARCH RESULTS GO HERE USING JAVASCRIPT --> 
+
+
+  </ul>
+
+
+</div>
+<!-- <button onclick="openOptions()" type="button" class="btn btn-primary">Options</button> -->
+<!-- <button onclick="openTrackedSettingsWindow()" type="button" class="btn btn-primary">Lol</button> -->
+
+
+<!-- 
+  <button onclick="openOptions()" type="button" class="btn btn-primary">Options</button>
+  <button onclick="" id="removeButton" type="button" class="btn btn-primary">Remove</button>
+
+  <button onclick="hideOrUnhideAttribute('unhide', 'searchList')" type="button" class="btn btn-primary">unhide</button>
+  <button onclick="hideOrUnhideAttribute('hide', 'searchList')" type="button" class="btn btn-primary">hide</button>
+  --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+  <script>
+    const socket = io('https://catagory-server-nodejs.herokuapp.com/');
+  </script>
+  <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="client.js"></script>
+
+  <script type="text/javascript">
+    var _gauges = _gauges || [];
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'gauges-tracker';
+      t.setAttribute('data-site-id', '5fa1850edf12740f36db758d');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+
+</body>
+</html>
