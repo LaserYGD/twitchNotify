@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Loading it twice, otherwise it won't work. Can also load once, version 1.9.1, which would work. 
+    Should be improved/fixed in the future, this might lead to problems in other computers when released-->
+  </head>
+
+  <body>
+    <!-- Update pop-up -->
+    <div class="modal fade" id="askUserToUpdate" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updateTitle">Your version is outdated</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Please download the latest update. You won't lose any of your tracked games or settings upon update
+            <br />
+            Updates include new features, security fixes/improvements, bugfixes, general QoL improvements and more.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="buttonDownload">Download</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- END OF update pop-up -->
+
+    <div class="container-1">
+      <div class="network">
+        <div id="currentStatus">
+          <div class="alert alert-secondary" id="connecting" role="alert">connecting to server...</div>
+        </div>
+      </div>
+
+      <button onclick="resetTrackedGamesFile()" type="button" class="resetButton">Delete List</button>
+
+      <div id="searchParent">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          id="searchIcon"
+          class="icon icon-tabler icon-tabler-search"
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="#9E9E9E"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="10" cy="10" r="7" />
+          <line x1="21" y1="21" x2="15" y2="15" />
+        </svg>
+        <input type="text" id="searchInput" class="grid-item" disabled="true" onkeyup="searchFilter()" placeholder="Search for games by name.." />
+      </div>
+
+      <div class="gameTracking-box">
+        <!-- THE 'TRACKED LIST' AREA -->
+        Tracked games:
+
+        <ul id="trackedGamesList"></ul>
+      </div>
+
+      <ul id="searchList">
+        <!-- SEARCH RESULTS GO HERE USING JAVASCRIPT -->
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script>
+      const socket = io("https://catagory-server-nodejs.herokuapp.com/");
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+    <script src="client.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function () {
+        var t = document.createElement("script");
+        t.type = "text/javascript";
+        t.async = true;
+        t.id = "gauges-tracker";
+        t.setAttribute("data-site-id", "5fa1850edf12740f36db758d");
+        t.setAttribute("data-track-path", "https://track.gaug.es/track.gif");
+        t.src = "https://d2fuc4clr7gvcn.cloudfront.net/track.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>
